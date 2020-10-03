@@ -162,7 +162,7 @@
  
  header.masthead .header-content {
    max-width: 500px;
-   margin-bottom: 100px;
+   margin-bottom: 25px;
    text-align: center;
  }
  
@@ -236,7 +236,7 @@
  }
  
  section.features .section-heading {
-   margin-bottom: 100px;
+   margin-bottom: 25px;
  }
  
  section.features .section-heading h2 {
@@ -264,8 +264,8 @@
  }
  
  section.features .feature-item {
-   padding-top: 50px;
-   padding-bottom: 50px;
+   padding-top: 25px;
+   padding-bottom: 25px;
    text-align: center;
  }
  
@@ -373,14 +373,12 @@
  }
  
  #test {
-   max-width: 175%;
+   max-width: 100%;
    height: auto;
-   margin-left: -165px;
  }
 
  #contest {
-  max-width: 230%;
+  max-width: 100%;
   height: auto;
-  margin-left: -300px;
  }
 
