@@ -262,29 +262,6 @@
   <!-- Custom scripts for this template -->
   <script src="js/new-age.min.js"></script>
 
-  <script type="text/javascript">
-	$("#formID").submit(function(e){
-	  e.preventDefault();
-	  var action = $(this).attr("action");
-	  var data = {};
-	  $(this).serializeArray().map(function(x){data[x.name] = x.value;}); 
-	  $.ajax({
-	    type: "POST",
-	    url: action,
-	    data: JSON.stringify(data),
-	    contentType: "application/json",
-	    headers: {
-	      "Accept": "application/json"
-	    }
-	  }).done(function() {
-	     $('form').css('display','none');
-	     $('.w-form-done').css('display','block');
-	  }).fail(function() {
-	     $('.w-form-fail').css('display','block');
-	  });
-	});
-	</script>
-
 </body>
 
 </html>
