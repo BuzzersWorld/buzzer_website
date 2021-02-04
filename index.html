@@ -73,7 +73,7 @@
       <div class="row h-100">
         <div class="col-lg-7 my-auto">
           <div class="header-content mx-auto">
-            <h1 class="mb-3"><!-- Buzzer is the next generation of social entertainment. It’s simple: post your best videos daily for a chance at some serious cash & 24 hours of celebrity spotlight. Check it out now! --><b>Buzzer</b></h1><h2>Imagine TikTok merged with America's Got Talent.</h2><br>
+            <h1 class="mb-3"><!-- Buzzer is the next generation of social entertainment. It’s simple: post your best videos daily for a chance at some serious cash & 24 hours of celebrity spotlight. Check it out now! --><b>Buzzer</b></h1><h2>TikTok meets  America's Got Talent.</h2><br>
             <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger">Join Waitlist</a>
           </div>
         </div>
@@ -263,32 +263,27 @@
   <script src="js/new-age.min.js"></script>
 
   <script type="text/javascript">
-  	var message = "";
-
-	$("#sendMessage").on("click", function() {
-	    message = $("#contactform").serialize();
-	    $.ajax({
-	        url: "//formspree.io/lakabimanil@buzzrapp.com", 
-	        method: "POST",
-	        data: {message: message},
-	        dataType: "json"
-	    });
-	    alert('Thanks for submitting your email! We look forward to you enjoying Buzzer!');
-	    return false;
+	$("#formID").submit(function(e){
+	  e.preventDefault();
+	  var action = $(this).attr("action");
+	  var data = {};
+	  $(this).serializeArray().map(function(x){data[x.name] = x.value;}); 
+	  $.ajax({
+	    type: "POST",
+	    url: action,
+	    data: JSON.stringify(data),
+	    contentType: "application/json",
+	    headers: {
+	      "Accept": "application/json"
+	    }
+	  }).done(function() {
+	     $('form').css('display','none');
+	     $('.w-form-done').css('display','block');
+	  }).fail(function() {
+	     $('.w-form-fail').css('display','block');
+	  });
 	});
-
-	$("#contactMessage").on("click", function() {
-	    message = $("#contactform").serialize();
-	    $.ajax({
-	        url: "//formspree.io/lakabimanil@buzzrapp.com", 
-	        method: "POST",
-	        data: {message: message},
-	        dataType: "json"
-	    });
-	    alert('Thanks for your email! We\'ll be in touch promptly.');
-	    return false;
-	});
-  </script>
+	</script>
 
 </body>
 
